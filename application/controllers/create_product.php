@@ -9,7 +9,6 @@ class Create_product extends CI_Controller{
 	$this->load->library('datatables');
 	$this->load->model('trans_model');
 	$this->load->model('insert_create_product_model');
-
  }
 
  function index(){
@@ -22,6 +21,22 @@ class Create_product extends CI_Controller{
  }
  
 function insert(){
+		 $config = array(
+		'upload_path' => "./gambar/",
+		'allowed_types' => "gif|jpg|png|jpeg|pdf",
+		'overwrite' => TRUE,
+		'max_size' => "2048000", // Can be set to particular file size , here it is 2 MB(2048 Kb)
+		'max_height' => "768",
+		'max_width' => "1024"
+	 );
+	 $this->load->library('upload', $config);
+		//$this->upload->do_upload();
+		$data2 = array(
+			'img01' => $this->upload->data(),
+			'img02' => $this->upload->data(),
+			'img03' => $this->upload->data(),
+			'img04' => $this->upload->data()
+		);
 		$data = array(
 		'ads_id' => '001',//$this->input->post(''),
 		'member_id' => $this->input->post('Member_id'),
@@ -41,7 +56,20 @@ function insert(){
 		'ads_description' => '',//$this->input->post(''),
 		'ads_status' => 'Active'//$this->input->post('')
 		);
+		
 		$this->insert_create_product_model->create_product_insert($data);
+ }
+ 
+ function do_upload(){
+	 $config = array(
+		'upload_path' => "./gambar/",
+		'allowed_types' => "gif|jpg|png|jpeg|pdf",
+		'overwrite' => TRUE,
+		'max_size' => "2048000", // Can be set to particular file size , here it is 2 MB(2048 Kb)
+		'max_height' => "768",
+		'max_width' => "1024"
+	 );
+	 $this->load->library('upload', $config);
  }
  /* function ambil_data(){
 		

@@ -9,7 +9,6 @@
             }
         </style>
 			<!-- Basic need -->
-	
 	<meta charset="UTF-8">
 	<meta name="description" content="ReaLand - Real Estate HTML Template">
 	<meta name="keywords" content="">
@@ -89,7 +88,7 @@
                                 <div class="col-md-4">
                                     <div class="submit-property__group">
                                         <label for="property-type" class="submit-property__label">Member Id</label>
-                                        <input type="text" class="submit-property__field" id="Member_id" placeholder="Title"
+                                        <input type="text" class="submit-property__field" id="Member_id" name="Member_id" placeholder="Title"
 										value="<?php echo $login_data['id'] ?> " readonly>
                                     </div><!-- .submit-property__group -->
                                 </div><!-- .col -->
@@ -97,7 +96,7 @@
                                 <div class="col-md-4">
                                     <div class="submit-property__group">
                                         <label for="property-offer" class="submit-property__label">Nama </label>
-                                        <input type="text" class="submit-property__field" id="Member_Name" placeholder="Title"
+                                        <input type="text" class="submit-property__field" id="Member_Name" name="Member_Name" placeholder="Title"
 										value="<?php echo $login_data['fullname'] ?> " readonly>
                                     </div><!-- .submit-property__group -->
                                 </div><!-- .col -->
@@ -107,14 +106,14 @@
                     
                             <div class="submit-property__group">
                                 <label for="property-title" class="submit-property__label">Judul *</label>
-                                <input type="text" name="title" class="submit-property__field" id="ads_Title" placeholder="Title" required>
+                                <input type="text" name="title" class="submit-property__field" id="ads_Title" name="ads_Title" placeholder="Title" required>
                             </div><!-- .submit-property__group -->
 
                             <div class="row">
                                 <div class="col-md-4">
                                     <div class="submit-property__group">
                                         <label for="property-type" class="submit-property__label">Category *</label>
-                                        <select class="ht-field" id="ads_category" required>
+                                        <select class="ht-field" id="ads_category" name="ads_category" required>
                                             <option>All Category </option>
 											<?php
 												foreach ($category as $cat) {
@@ -128,7 +127,7 @@
                                 <div class="col-md-4">
                                     <div class="submit-property__group">
                                         <label for="property-offer" class="submit-property__label">Type *</label>
-                                        <select class="ht-field" id="ads_type" required>
+                                        <select class="ht-field" id="ads_type" name="ads_type" required>
                                           	<option>All Type</option>
 											
 											<?php 
@@ -145,7 +144,7 @@
                                 <div class="col-md-4">
                                     <div class="submit-property__group">
                                         <label for="property-rental-period" class="submit-property__label">Priode sewa *</label>
-                                        <select class="ht-field" id="ads_period" required>
+                                        <select class="ht-field" id="ads_period" name="ads_period" required>
                                             <option value="monthly">Monthly</option>
                                             <option value="yearly">Yearly</option>
                                         </select>
@@ -157,7 +156,7 @@
                                 <div class="col-md-4">
                                     <div class="submit-property__group">
                                         <label for="property-price" class="submit-property__label">Harga *</label>
-                                        <input type="text" class="submit-property__field" id="ads_price" required>
+                                        <input type="text" class="submit-property__field" id="ads_price" name="ads_price" required>
                                         <span class="submit-property__unit">Rp</span>
                                     </div><!-- .submit-property__group -->
                                 </div><!-- .col -->
@@ -165,7 +164,7 @@
                                 <div class="col-md-4">
                                     <div class="submit-property__group">
                                         <label for="property-area" class="submit-property__label">Area *</label>
-                                        <select class="ht-field" id="ads_area" required>
+                                        <select class="ht-field" id="ads_area" name="ads_area" required>
                                           	<option>All </option>	
 											<?php
 												foreach ($district as $dist) {
@@ -195,10 +194,11 @@
                                     <div class="submit-property__group">
                                         <label for="property-featured-image" class="submit-property__label"></label>
                                         <div class="submit-property__upload">
-                                            <input type="file">
+                                            <input type="file" id="imgInp" name="img01" onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])">
                                             <div class="submit-property__upload-inner">
-                                                <span class="ion-ios-plus-outline submit-property__icon"></span>
-                                                <span class="submit-property__upload-desc">Upload Foto Tanah atau properti anda di sini </span>
+                                                <!--<span class="ion-ios-plus-outline submit-property__icon"></span>-->
+												<img id="blah" src="#" alt="your image" class="submit-property__upload-desc"/>
+                                                <!--<span class="submit-property__upload-desc">Upload Foto Tanah atau properti anda di sini </span>-->
                                             </div>
                                         </div><!-- .submit-proeprty__upload -->
                                     </div><!-- .submit-property__group -->
@@ -208,10 +208,11 @@
                                     <div class="submit-property__group">
                                         <label for="property-featured-image" class="submit-property__label"></label>
                                         <div class="submit-property__upload">
-                                            <input type="file">
+                                            <input type="file" id="imgInp" name="img02" onchange="document.getElementById('blah2').src = window.URL.createObjectURL(this.files[0])">
                                             <div class="submit-property__upload-inner">
-                                                <span class="ion-ios-plus-outline submit-property__icon"></span>
-                                                <span class="submit-property__upload-desc">Upload Foto Tanah atau properti anda di sini </span>
+                                                <!--<span class="ion-ios-plus-outline submit-property__icon"></span>-->
+												<img id="blah2" src="#" alt="your image" class="submit-property__upload-desc"/>
+                                                <!--<span class="submit-property__upload-desc">Upload Foto Tanah atau properti anda di sini </span>-->
                                             </div>
                                         </div><!-- .submit-proeprty__upload -->
                                     </div><!-- .submit-property__group -->
@@ -220,10 +221,11 @@
                                     <div class="submit-property__group">
                                         <label for="property-featured-image" class="submit-property__label"></label>
                                         <div class="submit-property__upload">
-                                            <input type="file">
+                                            <input type="file" id="imgInp" name="img03" onchange="document.getElementById('blah3').src = window.URL.createObjectURL(this.files[0])">
                                             <div class="submit-property__upload-inner">
-                                                <span class="ion-ios-plus-outline submit-property__icon"></span>
-                                                <span class="submit-property__upload-desc">Upload Foto Tanah atau properti anda di sini </span>
+                                                <!--<span class="ion-ios-plus-outline submit-property__icon"></span>-->
+												<img id="blah3" src="#" alt="your image" class="submit-property__upload-desc"/>
+                                                <!--<span class="submit-property__upload-desc">Upload Foto Tanah atau properti anda di sini </span>-->
                                             </div>
                                         </div><!-- .submit-proeprty__upload -->
                                     </div><!-- .submit-property__group -->
@@ -232,10 +234,11 @@
                                     <div class="submit-property__group">
                                         <label for="property-featured-image" class="submit-property__label"></label>
                                         <div class="submit-property__upload">
-                                            <input type="file">
+                                            <input type="file" id="imgInp" name="img04" onchange="document.getElementById('blah4').src = window.URL.createObjectURL(this.files[0])">
                                             <div class="submit-property__upload-inner">
-                                                <span class="ion-ios-plus-outline submit-property__icon"></span>
-                                                <span class="submit-property__upload-desc">Upload Foto Tanah atau properti anda di sini </span>
+                                                <!--<span class="ion-ios-plus-outline submit-property__icon"></span>-->
+												<img id="blah4" src="#" alt="your image" class="submit-property__upload-desc"/>
+                                                <!--<span class="submit-property__upload-desc">Upload Foto Tanah atau properti anda di sini </span>-->
                                             </div>
                                         </div><!-- .submit-proeprty__upload -->
                                     </div><!-- .submit-property__group -->

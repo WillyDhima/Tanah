@@ -79,7 +79,7 @@
         <div class="submit-property__container">
             <div class="row">
                 <?php $this->load->view('content/menu_admin')?><!-- .col -->
-                <form method="post" action="<?php echo site_url('create_product/insert');?>" >
+                <form method="post" action="<?php echo site_url('create_product/insert');?>" enctype="multipart/form-data">
                     <div class="col-md-9">
                         <div class="submit-property__block">
                             <h3 class="submit-property__headline">Basic Information</h3>

@@ -9,6 +9,7 @@ class Create_product extends CI_Controller{
 	$this->load->library('datatables');
 	$this->load->model('trans_model');
 	$this->load->model('insert_create_product_model');
+	$this->load->model('insert_pic');
  }
 
  function index(){
@@ -22,45 +23,51 @@ class Create_product extends CI_Controller{
  
 function insert(){
 		 $config = array(
-		'upload_path' => "./gambar/",
+		'upload_path' => APPPATH. "../gambar/", //APPPATH. '../assets/uploads/';
 		'allowed_types' => "gif|jpg|png|jpeg|pdf",
 		'overwrite' => TRUE,
-		'max_size' => "2048000", // Can be set to particular file size , here it is 2 MB(2048 Kb)
-		'max_height' => "768",
-		'max_width' => "1024"
+		'max_size' => "2048"//, // Can be set to particular file size , here it is 2 MB(2048 Kb)
+		//'max_height' => "768",
+		//'max_width' => "1024"
 	 );
 	 $this->load->library('upload', $config);
 		//$this->upload->do_upload();
-		$data2 = array(
-			'img01' => $this->upload->data(),
-			'img02' => $this->upload->data(),
-			'img03' => $this->upload->data(),
-			'img04' => $this->upload->data()
-		);
-		$data = array(
-		'ads_id' => '001',//$this->input->post(''),
-		'member_id' => $this->input->post('Member_id'),
-		'ads_title' => $this->input->post('ads_Title'),
-		'ads_category' => $this->input->post('ads_category'),
-		'ads_listing_type' => $this->input->post('ads_type'),
-		'ads_price' => $this->input->post('ads_price'),
-		'ads_surface_area' => $this->input->post('ads_area'),
-		'ads_building_area' => '',//$this->input->post(''),
-		'ads_flor_count' => '',//$this->input->post(''),
-		'ads_badroom_count' => '',//$this->input->post(''),
-		'ads_bathroom_count' => '',//$this->input->post(''),
-		'ads_cert' => $this->input->post('ads_certficate'),
-		'ads_facilities' => $this->input->post('ads_lot_size'),
-		'ads_address' => $this->input->post('ads_address'),
-		'ads_village' => '',//$this->input->post(''),
-		'ads_description' => '',//$this->input->post(''),
-		'ads_status' => 'Active'//$this->input->post('')
-		);
+		$this->upload->do_upload('img01');
+		$this->upload->do_upload('img02');
+		$this->upload->do_upload('img03');
+		$this->upload->do_upload('img04');
+		$this->upload->data();
 		
+		$data2 = array(
+			'ads_id' => '',
+			'ads_image_name' => '',
+			'ads_sort' => ''
+		);
+		$this->insert_pic->pic_insert($data2);
+		
+		$data = array(
+			'ads_id' => '001',//$this->input->post(''),
+			'member_id' => $this->input->post('Member_id'),
+			'ads_title' => $this->input->post('ads_Title'),
+			'ads_category' => $this->input->post('ads_category'),
+			'ads_listing_type' => $this->input->post('ads_type'),
+			'ads_price' => $this->input->post('ads_price'),
+			'ads_surface_area' => $this->input->post('ads_area'),
+			'ads_building_area' => '',//$this->input->post(''),
+			'ads_flor_count' => '',//$this->input->post(''),
+			'ads_badroom_count' => '',//$this->input->post(''),
+			'ads_bathroom_count' => '',//$this->input->post(''),
+			'ads_cert' => $this->input->post('ads_certficate'),
+			'ads_facilities' => $this->input->post('ads_lot_size'),
+			'ads_address' => $this->input->post('ads_address'),
+			'ads_village' => '',//$this->input->post(''),
+			'ads_description' => '',//$this->input->post(''),
+			'ads_status' => 'Active'//$this->input->post('')
+		);		
 		$this->insert_create_product_model->create_product_insert($data);
  }
  
- function do_upload(){
+/* function do_upload(){
 	 $config = array(
 		'upload_path' => "./gambar/",
 		'allowed_types' => "gif|jpg|png|jpeg|pdf",
@@ -70,7 +77,7 @@ function insert(){
 		'max_width' => "1024"
 	 );
 	 $this->load->library('upload', $config);
- }
+ }*/
  /* function ambil_data(){
 		
 		$modul=$this->input->post('modul');

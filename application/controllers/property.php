@@ -4,9 +4,10 @@ class Property extends CI_Controller
 {
   public function index()
   {
+	$login_data =$this->session->userdata("login");
     $this->load->model("users_property"); 
-    $data["member_id"]=$this->users_property->get_property();
+    $data["member"]=$this->users_property->get_property('member_id', $login_data['id']);
 
-    $this->load->view("users_view",$data);
+    $this->load->view("v_property",$data);
   }
 }

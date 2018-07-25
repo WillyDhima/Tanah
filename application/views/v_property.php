@@ -166,7 +166,8 @@
                             <span class="manage-list__title"><i class="fa fa-calendar-o" aria-hidden="true"></i> Expiration Date</span>
                         </li>
 						<!--select-->
-                        <li class="manage-list__item">
+                        <?php foreach ($member as $members) { ?>
+						<li class="manage-list__item">
                             <div class="manage-list__item-container">
                                 <div class="manage-list__item-img">
                                     <a href="single_property_1.html">
@@ -175,22 +176,24 @@
                                 </div><!-- manage-list__item-img -->
                         
                                 <div class="manage-list__item-detail">
-                                    <h3 class="listing__title"><a href="single_property_1.html"><?php echo $ads_title ?></a></h3>
-                                    <p class="listing__location"><span class="ion-ios-location-outline listing__location-icon"></span><?php echo $ads_address ?></p>
-                                    <p class="listing__price"><?php echo $ads_price ?></p>
+                                    <h3 class="listing__title"><a href="single_property_1.html"><?php echo $members->ads_title; ?></a></h3>
+                                    <p class="listing__location"><span class="ion-ios-location-outline listing__location-icon"></span><?php echo $members->ads_address ?></p>
+                                    <p class="listing__price"><?php echo $members->ads_price ?></p>
                                 </div>
                             </div><!-- .manage-list__item-container -->
 
-                            <div class="manage-list__expire-date"><?php echo $ads_status ?></div>
+                            <div class="manage-list__expire-date"><?php echo $members->ads_status ?></div>
 
                             <div class="manage-list__action">
                                 <a href="#" class="edit"><i class="fa fa-pencil" aria-hidden="true"></i> Edit</a>
                                 <a href="#" class="remove"><i class="fa fa-times" aria-hidden="true"></i> Remove</a>
                             </div>
                         </li><!-- .manage-list__item" -->
+						<?php } ?>
                     </ul>
                 </div><!-- .col -->
             <!--end select-->
+			
 			</div><!-- .row -->
         </div><!-- .my-property__container -->
     </div><!-- .container -->

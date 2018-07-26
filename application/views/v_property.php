@@ -166,7 +166,8 @@
                             <span class="manage-list__title"><i class="fa fa-calendar-o" aria-hidden="true"></i> Expiration Date</span>
                         </li>
 						<!--select-->
-                        <?php foreach ($member as $members) { ?>
+			    
+                        <?php if (!empty($member)){ foreach ($member as $members) { ?>
 						<li class="manage-list__item">
                             <div class="manage-list__item-container">
                                 <div class="manage-list__item-img">
@@ -189,7 +190,7 @@
                                 <a href="#" class="remove"><i class="fa fa-times" aria-hidden="true"></i> Remove</a>
                             </div>
                         </li><!-- .manage-list__item" -->
-						<?php } ?>
+						<?php } }?>
                     </ul>
                 </div><!-- .col -->
             <!--end select-->

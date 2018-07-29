@@ -6,8 +6,7 @@ class Property extends CI_Controller
   {
 	$login_data =$this->session->userdata("login");
     $this->load->model("users_property"); 
-    $data["member"]=$this->users_property->get_property('member_id', $login_data['id']);
-
+    $data["member"]=$this->users_property->get_property($login_data['id']);
     $this->load->view("v_property",$data);
   }
 }

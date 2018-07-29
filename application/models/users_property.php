@@ -7,7 +7,7 @@ class Users_property extends CI_Model
   {
     /* all the queries relating to the data we want to retrieve will go in here. */
  
-    $this->db->where($where_arr);
+    $this->db->where('member_id', $where_arr);
     $this->db->select('ads_id, member_id, ads_title, ads_category, ads_listing_type, ads_price, ads_surface_area, ads_building_area, ads_flor_count, ads_badroom_count, ads_bathroom_count, ads_cert, ads_facilities, ads_address, ads_village, ads_description, ads_status, created_date, updated_date, viewed');
     $q = $this->db->get('ads');
  

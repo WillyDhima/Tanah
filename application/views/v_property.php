@@ -123,16 +123,13 @@
                             <span class="manage-list__title"><i class="fa fa-calendar-o" aria-hidden="true"></i> Expiration Date</span>
                         </li>
 						<!--select-->
-<<<<<<< HEAD
-=======
-			    
->>>>>>> e216196cd5d009156f6d061b2e383471a82034e1
+						<!--start willy-->
                         <?php if (!empty($member)){ foreach ($member as $members) { ?>
 						<li class="manage-list__item">
                             <div class="manage-list__item-container">
                                 <div class="manage-list__item-img">
                                     <a href="single_property_1.html">
-                                        <img src="images/uploads/manage-item-1.jpg" alt="Weston Hightpointe Place" class="listing__img">
+                                        <img src="gambar/'<?php $members->ads_image_name; ?>'" class="listing__img">
                                     </a>
                                 </div><!-- manage-list__item-img -->
                         
@@ -150,11 +147,8 @@
                                 <a href="#" class="remove"><i class="fa fa-times" aria-hidden="true"></i> Remove</a>
                             </div>
                         </li><!-- .manage-list__item" -->
-<<<<<<< HEAD
 						<?php }} ?>
-=======
-						<?php } }?>
->>>>>>> e216196cd5d009156f6d061b2e383471a82034e1
+						<!-- end willy -->
                     </ul>
                 </div><!-- .col -->
             <!--end select-->

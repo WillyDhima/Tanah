@@ -42,6 +42,7 @@ function insert(){
 			'ads_description' => '',//$this->input->post(''),
 			'ads_status' => 'Active'//$this->input->post('')
 		);		
+		
 		$this->insert_create_product_model->create_product_insert($data);
 		$login_data =$this->session->userdata("login");
 		/*if (!is_dir('../gambar/'.$login_data)) {
@@ -61,7 +62,7 @@ function insert(){
 			}
 		};
 		 $config = array(
-		'upload_path' => "../gambar/", //APPPATH. '../assets/uploads/';
+		'upload_path' => APPPATH."../gambar/", //APPPATH. '../assets/uploads/';
 		'allowed_types' => "gif|jpg|png|jpeg|pdf",
 		'overwrite' => TRUE,
 		'max_size' => "2048"//, // Can be set to particular file size , here it is 2 MB(2048 Kb)

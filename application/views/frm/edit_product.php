@@ -64,7 +64,7 @@
 
 			<?php $this->load->view('content/menuU') ?>
 
-			<a href="submit_property.html" class="header__cta">&plus; Submit Property</a>
+			<a href="submit_property.html" class="header__cta">&plus; Edit Property</a>
 		</div><!-- .header__main -->
 	</div><!-- .container -->
 </header><!-- .header -->
@@ -89,7 +89,7 @@
                                     <div class="submit-property__group">
                                         <label for="property-type" class="submit-property__label">Member Id</label>
                                         <input type="text" class="submit-property__field" id="Member_id" name="Member_id" placeholder="Title"
-										value="<?php echo $login_data['id'] ?> " readonly>
+										value="<?php echo set_value('Member_id', $product['Member_id']); ?> " readonly>
                                     </div><!-- .submit-property__group -->
                                 </div><!-- .col -->
 
@@ -97,7 +97,7 @@
                                     <div class="submit-property__group">
                                         <label for="property-offer" class="submit-property__label">Nama </label>
                                         <input type="text" class="submit-property__field" id="Member_Name" name="Member_Name" placeholder="Title"
-										value="<?php echo $login_data['fullname'] ?> " readonly>
+										value="<?php echo set_value('Member_Name', $login_data['fullname']); ?>" readonly>
                                     </div><!-- .submit-property__group -->
                                 </div><!-- .col -->
 
@@ -106,20 +106,21 @@
                     
                             <div class="submit-property__group">
                                 <label for="property-title" class="submit-property__label">Judul </label>
-                                <input type="text" name="title" class="submit-property__field" id="ads_title1" placeholder="Title" required>
+                                <input type="text" name="title" class="submit-property__field" id="ads_title1" placeholder="Title" value="<?php echo $product['Title'] ?> " required>
                             </div><!-- .submit-property__group -->
 
                             <div class="row">
                                 <div class="col-md-4">
                                     <div class="submit-property__group">
                                         <label for="property-type" class="submit-property__label">Category *</label>
-                                        <select class="ht-field" id="ads_category" name="ads_category" required>
-                                            <option>All Category </option>
+                                        <select class="ht-field" id="ads_category" name="ads_category" value="<?php echo $product['ads_category'] ?> " required>
+											<option><?php echo $product['ads_category_desc'] ?> </option>
 											<?php
-												foreach ($category as $cat) {
+												/*foreach ($category as $cat) {
 												echo "<option value='$cat[ads_category]'>$cat[ads_category_desc]</option>";
-												}
+												}*/
 											?>
+											<option>All Category </option>
                                         </select>
                                     </div><!-- .submit-property__group -->
                                 </div><!-- .col -->
@@ -131,9 +132,9 @@
                                           	<option>All Type</option>
 											
 											<?php 
-												foreach ($type as $row) {
+												/*foreach ($type as $row) {
 												echo "<option value='$row[ads_listing_type_id]'>$row[ads_listing_type_desc]</option>";
-												}
+												}*/
 											?>
 											
 											
@@ -167,9 +168,9 @@
                                         <select class="ht-field" id="ads_area" name="ads_area" required>
                                           	<option>All </option>	
 											<?php
-												foreach ($district as $dist) {
+												/*foreach ($district as $dist) {
 												echo "<option value='$dist[id]'>$dist[name]</option>";
-												}
+												}*/
 											?>
 											
 											

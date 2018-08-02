@@ -1,5 +1,5 @@
 <?php
-class Create_product extends CI_Controller{
+class Update_product extends CI_Controller{
 
  function __construct(){
   parent::__construct();
@@ -8,19 +8,24 @@ class Create_product extends CI_Controller{
 	$this->load->helper(array('url'));
 	$this->load->library('datatables');
 	$this->load->model('trans_model');
-	$this->load->model('insert_create_product_model');
+	$this->load->model('edit_product_model');
 	$this->load->model('insert_pic');
 	$this->load->model('sortapps');
  }
 
- function index(){
+ function index($ads_id){
 	   //$data['menu'] =
 	 $data['header_admin']='content/header_admin';
 	 $data['type']=$this->trans_model->getListingType();
 	 $data['category']=$this->trans_model->category();
 	 $data['district']=$this->trans_model->district();
-	 $data['product'] = $this->SiswaModel->view_by($nis);
+	 $data['product'] = $this->edit_product_model->view_ads($ads_id);
+	 $data['image'] = $this->edit_product_model->view_image($ads_id);
 	 $this->load->view('frm/edit_product',$data);
+ }
+ 
+ function _remap($ads_id){
+	 $this->index($ads_id);
  }
  
 function update(){

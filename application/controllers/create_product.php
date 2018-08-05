@@ -45,29 +45,20 @@ function insert(){
 		
 		$this->insert_create_product_model->create_product_insert($data);
 		$login_data =$this->session->userdata("login");
-		/*if (!is_dir('../gambar/'.$login_data)) {
-			mkdir('../gambar/' . $login_data, 0777, TRUE);
-			}
-		$date = date('Y-m-d H:i:s');
-		$date = str_replace( ':', '', $date);
-		$date = str_replace( '-', '', $date);
-		if (!is_dir('../gambar/'.$login_data.'/'.$date)) {
-			mkdir('../gambar/' . $login_data.'/'.$date, 0777, TRUE);
-			}*/
-		//$id["Member"] = $this->sortapps->get_sort('ASC', 'ads_id', 'ads_id', 'ads', $login_data['id']);
+		
 		$id["Member"] = $this->sortapps->get_sort('DESC', 'ads_id', 'ads_id', 'ads', $login_data['id']);
+		
 		if (!empty($id['Member'])){ 
 			foreach ($id['Member'] as $ids) {
 				$id_member = $ids->ads_id;
 			}
 		};
+		
 		 $config = array(
 		'upload_path' => APPPATH."../gambar/", //APPPATH. '../assets/uploads/';
 		'allowed_types' => "gif|jpg|png|jpeg|pdf",
 		'overwrite' => TRUE,
-		'max_size' => "2048"//, // Can be set to particular file size , here it is 2 MB(2048 Kb)
-		//'max_height' => "768",
-		//'max_width' => "1024"
+		'max_size' => "2048"
 	 );
 	 $this->load->library('upload', $config);
 		//$this->upload->do_upload();

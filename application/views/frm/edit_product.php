@@ -114,12 +114,14 @@
                                     <div class="submit-property__group">
                                         <label for="property-type" class="submit-property__label">Category *</label>
                                         <select class="ht-field" id="ads_category" name="ads_category" required>
-                                            <option>All Category </option>
+                                            <option value="<?php echo set_value('ads_category', $products->ads_category); ?> "><?php echo $products->ads_category_desc; ?></option>
+											<option>All Category </option>
 											<?php
-												/*foreach ($category as $cat) {
+												foreach ($category as $cat) {
 												echo "<option value='$cat[ads_category]'>$cat[ads_category_desc]</option>";
-												}*/
+												}
 											?>
+											
                                         </select>
                                     </div><!-- .submit-property__group -->
                                 </div><!-- .col -->
@@ -128,7 +130,8 @@
                                     <div class="submit-property__group">
                                         <label for="property-offer" class="submit-property__label">Type *</label>
                                         <select class="ht-field" id="ads_type" name="ads_type" required>
-                                          	<option>All Type</option>
+                                          	<option value="<?php echo set_value('ads_type', $products->ads_listing_type); ?> "><?php echo $products->ads_listing_type_desc; ?></option>
+											<option>All Type</option>
 											
 											<?php 
 												foreach ($type as $row) {
@@ -156,7 +159,7 @@
                                 <div class="col-md-4">
                                     <div class="submit-property__group">
                                         <label for="property-price" class="submit-property__label">Harga *</label>
-                                        <input type="text" class="submit-property__field" id="ads_price" name="ads_price" required>
+                                        <input type="text" class="submit-property__field" id="ads_price" name="ads_price" value="<?php echo set_value('ads_price', $products->ads_price); ?> " required>
                                         <span class="submit-property__unit">Rp</span>
                                     </div><!-- .submit-property__group -->
                                 </div><!-- .col -->
@@ -165,7 +168,8 @@
                                     <div class="submit-property__group">
                                         <label for="property-area" class="submit-property__label">Area *</label>
                                         <select class="ht-field" id="ads_area" name="ads_area" required>
-                                          	<option>All </option>	
+                                          	<option value="<?php echo set_value('ads_area', $products->ads_village); ?> "><?php echo $products->name; ?></option>
+											<option>All </option>	
 											<?php
 												foreach ($district as $dist) {
 												echo "<option value='$dist[id]'>$dist[name]</option>";

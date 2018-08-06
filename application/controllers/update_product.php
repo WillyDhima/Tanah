@@ -15,12 +15,13 @@ class Update_product extends CI_Controller{
 
  function index($ads_id){
 	   //$data['menu'] =
-	 //$data['header_admin']='content/header_admin';
-	 //$data['type']=$this->trans_model->getListingType();
-	 //$data['category']=$this->trans_model->category();
-	 //$data['district']=$this->trans_model->district();
-	 //$data['product'] = $this->edit_product_model->view_ads($ads_id);
-	 //$data['image'] = $this->edit_product_model->view_image($ads_id);
+	 echo $ads_id;
+	 $data['header_admin']='content/header_admin';
+	 $data['type']=$this->trans_model->getListingType();
+	 $data['category']=$this->trans_model->category();
+	 $data['district']=$this->trans_model->district();
+	 $data['product'] = $this->edit_product_model->view_ads($ads_id);
+	 $data['image'] = $this->edit_product_model->view_image($ads_id);
 	 $this->load->view('frm/edit_product',$data);
  }
  

@@ -30,7 +30,7 @@ function insert(){
 			'ads_category' => $this->input->post('ads_category'),
 			'ads_listing_type' => $this->input->post('ads_type'),
 			'ads_price' => $this->input->post('ads_price'),
-			'ads_surface_area' => $this->input->post('ads_area'),
+			'ads_surface_area' => '',
 			'ads_building_area' => '',//$this->input->post(''),
 			'ads_flor_count' => '',//$this->input->post(''),
 			'ads_badroom_count' => '',//$this->input->post(''),
@@ -38,7 +38,7 @@ function insert(){
 			'ads_cert' => $this->input->post('ads_certficate'),
 			'ads_facilities' => $this->input->post('ads_lot_size'),
 			'ads_address' => $this->input->post('ads_address'),
-			'ads_village' => '',//$this->input->post(''),
+			'ads_village' => $this->input->post('ads_area'),//$this->input->post(''),
 			'ads_description' => '',//$this->input->post(''),
 			'ads_status' => 'Active'//$this->input->post('')
 		);		

@@ -85,6 +85,13 @@
                             <h3 class="submit-property__headline">Basic Information</h3>
 							<?php if (!empty($product)){ foreach ($product as $products) { ?>							
 							<div class="row">
+								<div class="col-md-4">
+                                    <div class="submit-property__group">
+                                        <input type="hidden" class="submit-property__field" id="ads_id" name="ads_id" placeholder="Title"
+										value="<?php echo set_value('ads_id', $products->ads_id); ?> "  readonly>
+                                    </div><!-- .submit-property__group -->
+                                </div><!-- .col -->
+								
                                 <div class="col-md-4">
                                     <div class="submit-property__group">
                                         <label for="property-type" class="submit-property__label">Member Id</label>
@@ -258,7 +265,7 @@
 
                             <div class="submit-property__group">
                                 <label for="property-map-address" class="submit-property__label">Alamat *</label>
-                                <input type="text" class="submit-property__field" id="ads_address" required>
+                                <input type="text" class="submit-property__field" id="ads_address" name="ads_address" value="<?php echo set_value('ads_address', $products->ads_address); ?> "  required>
                             </div><!-- .submit-property__group -->
 
                             <div class="row">
@@ -277,7 +284,7 @@
                                 <div class="col-md-4">
                                     <div class="submit-property__group">
                                         <label for="property-lot-size" class="submit-property__label">Luas Tanah *</label>
-                                        <input type="text" class="submit-property__field" id="ads_lot_size" required>
+                                        <input type="text" class="submit-property__field" id="ads_lot_size" name="ads_lot_size" value="<?php echo set_value('ads_lot_size', $products->ads_surface_area); ?> " required>
                                         <span class="submit-property__unit">sq.ft</span>
                                     </div><!-- .submit-property__group -->
                                 </div><!-- .col -->
@@ -285,7 +292,7 @@
                                 <div class="col-md-4">
                                     <div class="submit-property__group">
                                         <label for="property-parking" class="submit-property__label">Sertifikat</label>
-                                        <input type="text" class="submit-property__field" id="ads_certficate">
+                                        <input type="text" class="submit-property__field" id="ads_certficate" name="ads_certficate" value="<?php echo set_value('ads_certficate', $products->ads_cert); ?> ">
                                     </div><!-- .submit-property__group -->
                                 </div><!-- .col -->
 

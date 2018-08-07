@@ -23,7 +23,7 @@
 		}*/
 		
 		function view_ads($ads_id){
-			$this->db->select('ads.ads_id,ads.member_id,ads.ads_title,ads.ads_category,ads.ads_listing_type,ads.ads_price,ads.ads_village,ads.ads_description,ads.ads_status,ads.ads_village,ads.ads_address,ads.ads_cert, ads_category.ads_category_desc, ads_listing_type.ads_listing_type_desc, villages.name' );
+			$this->db->select('ads.ads_id,ads.member_id,ads.ads_title,ads.ads_surface_area,ads.ads_category,ads.ads_listing_type,ads.ads_price,ads.ads_village,ads.ads_description,ads.ads_status,ads.ads_village,ads.ads_address,ads.ads_cert, ads_category.ads_category_desc, ads_listing_type.ads_listing_type_desc, villages.name' );
 			$this->db->from('ads');
 			$this->db->join('ads_category', 'ads.ads_category = ads_category.ads_category','INNER');
 			$this->db->join('ads_listing_type','ads.ads_listing_type = ads_listing_type.ads_listing_type_id','INNER');

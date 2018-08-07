@@ -26,7 +26,14 @@ class Update_product extends CI_Controller{
  }
  
  function _remap($ads_id){
-	 $this->index($ads_id);
+	 if($ads_id == "update")
+	 {
+		 $this->update();
+	 }
+	 else
+	 {
+		 $this->index($ads_id);
+	 }
  }
  
 function update(){
@@ -37,7 +44,7 @@ function update(){
 			'ads_category' => $this->input->post('ads_category'),
 			'ads_listing_type' => $this->input->post('ads_type'),
 			'ads_price' => $this->input->post('ads_price'),
-			'ads_surface_area' => $this->input->post('ads_area'),
+			'ads_surface_area' => $this->input->post('ads_lot_size'),
 			'ads_building_area' => '',//$this->input->post(''),
 			'ads_flor_count' => '',//$this->input->post(''),
 			'ads_badroom_count' => '',//$this->input->post(''),
@@ -45,7 +52,7 @@ function update(){
 			'ads_cert' => $this->input->post('ads_certficate'),
 			'ads_facilities' => $this->input->post('ads_lot_size'),
 			'ads_address' => $this->input->post('ads_address'),
-			'ads_village' => '',//$this->input->post(''),
+			'ads_village' => $this->input->post('ads_area'),
 			'ads_description' => '',//$this->input->post(''),
 			'ads_status' => 'Active'//$this->input->post('')
 		);		
